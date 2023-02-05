@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5467776596332510607
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8502449418374500191}
+  - component: {fileID: 6030830134897911833}
+  - component: {fileID: 5474429660153310756}
+  - component: {fileID: 2844651424389542420}
+  m_Layer: 0
+  m_Name: Finger Lane
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8502449418374500191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5467776596332510607}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6030830134897911833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5467776596332510607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c3608e611af77643972271de35578e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectPoolCollection: {fileID: 0}
+  objectPoolAmount:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 3815cc1873a61d84cac6bb4e79fbb71d, type: 2}
+  objectPrefab: {fileID: 718064719173796332, guid: 0b6d212513b90054d8d7d0518fdc0ee3, type: 3}
+--- !u!114 &5474429660153310756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5467776596332510607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83e4da92452efd848a0450973184bea4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  laneNumber: 0
+  objectPoolCollection: {fileID: 0}
+  centimetersInGround:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 0}
+  fallDownStep:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 69e0a7391d4cb1f42ae55d134fa0af22, type: 2}
+  timeToFallDown:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 19bfba4f84e9f7f4783dfcc690c07949, type: 2}
+  cameraRectViewport:
+    _useConstant: 0
+    _constantValue:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    _variable: {fileID: 0}
+  laneRequestCompleted: {fileID: 11400000, guid: a012def728768eb41ae076e455068155, type: 2}
+  nailPrefab: {fileID: 2169060672460508645, guid: dccd1328a57d75942a0d348d54cc3a9a, type: 3}
+  cameraPrefab: {fileID: 514672180633344208, guid: f76419b45f7429a47b1a96eeae401acf, type: 3}
+  isFingerStuck: 0
+--- !u!114 &2844651424389542420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5467776596332510607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66a2805afc4b11249899e5add5fa9dcb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 0}
+  _event: {fileID: 11400000, guid: 18d8ab730f85fbc4896a281beaa32677, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5474429660153310756}
+        m_TargetAssemblyTypeName: FingerBehaviour, Assembly-CSharp
+        m_MethodName: ReleaseLane
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _debugValue:
+    targetLaneNumber: 0
+    buttonType: 0
+    timeOnLongPress: 0
+    numberOfTaps: 0

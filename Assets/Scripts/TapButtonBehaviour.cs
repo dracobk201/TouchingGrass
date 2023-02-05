@@ -76,7 +76,7 @@ public class TapButtonBehaviour : MonoBehaviour, IPointerDownHandler, IPointerUp
                     break;
                 case ButtonType.RepeatedTap:
                     buttonReference.image.sprite = multipleTapSprite;
-                    buttonLabel.text = $"{(int)expectedTimeOnLongPress}s";
+                    buttonLabel.text = $"{expectedTimeOnLongPress}s";
 
                     break;
                 case ButtonType.None:
@@ -134,19 +134,16 @@ public class TapButtonBehaviour : MonoBehaviour, IPointerDownHandler, IPointerUp
         {
             yield return null;
             actualTimeOnLongPress += Time.deltaTime;
-            Debug.Log(actualTimeOnLongPress);
             float remainingTime = expectedTimeOnLongPress - actualTimeOnLongPress;
             buttonLabel.text = $"{Mathf.Clamp(remainingTime, 0, Mathf.Infinity).ToString("F2")}s";
         }
 
         if (actualTimeOnLongPress >= expectedTimeOnLongPress)
         {
-            Debug.Log("yes");
             RequestCompleted();
         }
         else
         {
-            Debug.Log("no");
             buttonLabel.text = $"{expectedTimeOnLongPress}s";
         }
         actualTimeOnLongPress = 0;
@@ -173,8 +170,6 @@ public class TapButtonBehaviour : MonoBehaviour, IPointerDownHandler, IPointerUp
 
     private void RequestCompleted()
     {
-        Debug.Log($"{requestedButtonType}, Done");
-
         LaneRequest requestCompleted = new()
         {
             targetLaneNumber = laneNumber,

@@ -1,4 +1,4 @@
 public enum LaneEnum
 {
-    None, First, Second, Third, Forth, Fifth
+    None, First, Second, Third, Fourth, Fifth
 }
