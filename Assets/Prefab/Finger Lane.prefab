@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6030830134897911833}
   - component: {fileID: 5474429660153310756}
   - component: {fileID: 2844651424389542420}
+  - component: {fileID: 1022748394807970450}
   m_Layer: 0
   m_Name: Finger Lane
   m_TagString: Untagged
@@ -64,6 +65,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e4da92452efd848a0450973184bea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGameOver:
+    _useConstant: 0
+    _constantValue: 0
+    _variable: {fileID: 11400000, guid: 25ff9f637d962754f94939cc27e2705e, type: 2}
   laneNumber: 0
   objectPoolCollection: {fileID: 0}
   centimetersInGround:
@@ -129,3 +134,47 @@ MonoBehaviour:
     buttonType: 0
     timeOnLongPress: 0
     numberOfTaps: 0
+--- !u!114 &1022748394807970450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5467776596332510607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 0}
+  _event: {fileID: 11400000, guid: c538225d9f9031440ac1782703c5e7af, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6030830134897911833}
+        m_TargetAssemblyTypeName: ObjectPool, Assembly-CSharp
+        m_MethodName: InitializeObjectPool
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5474429660153310756}
+        m_TargetAssemblyTypeName: FingerBehaviour, Assembly-CSharp
+        m_MethodName: RestartLane
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

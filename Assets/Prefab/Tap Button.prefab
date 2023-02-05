@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 587421057920915646}
   - component: {fileID: 9129896239187596837}
   - component: {fileID: 7703544007238296775}
+  - component: {fileID: 3393054982603707492}
   - component: {fileID: 2920645744510915777}
   - component: {fileID: 3156929141686904763}
   - component: {fileID: 7929719719761323342}
@@ -236,6 +237,38 @@ MonoBehaviour:
     buttonType: 0
     timeOnLongPress: 0
     numberOfTaps: 0
+--- !u!114 &3393054982603707492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3788609808376010242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _showDebugFields: 0
+  _enableGizmoDebugging: 1
+  _debugColor: {r: 0, g: 1, b: 1, a: 1}
+  _previouslyRegisteredEvent: {fileID: 11400000, guid: c538225d9f9031440ac1782703c5e7af, type: 2}
+  _event: {fileID: 11400000, guid: c538225d9f9031440ac1782703c5e7af, type: 2}
+  _response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9129896239187596837}
+        m_TargetAssemblyTypeName: TapButtonBehaviour, Assembly-CSharp
+        m_MethodName: RestartLane
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &2920645744510915777
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -179,4 +179,9 @@ public class TapButtonBehaviour : MonoBehaviour, IPointerDownHandler, IPointerUp
         laneRequestCompleted.Raise(requestCompleted);
         ButtonActivation(false);
     }
+
+    public void RestartLane()
+    {
+        ButtonActivation(false);
+    }
 }

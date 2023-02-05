@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class FingerBehaviour : MonoBehaviour
 {
+    [SerializeField] private BoolReference isGameOver = default;
+
     [SerializeField] private LaneEnum laneNumber = default;
     [SerializeField] private GameObjectCollection objectPoolCollection = default;
 
@@ -21,20 +23,32 @@ public class FingerBehaviour : MonoBehaviour
 
     private void Start()
     {
+        RestartLane();
+    }
+
+    public void RestartLane()
+    {
+        actualTime = 0;
+        isFingerStuck = false;
         centimetersInGround.Value = 0;
         GameObject nail = Instantiate(nailPrefab, transform);
         Vector3 realPosition = new Vector3(0, 0, 0);
         nail.transform.localPosition = realPosition;
         objectPoolCollection[0] = nail;
-        
+
         GameObject camera = Instantiate(cameraPrefab, nail.transform);
         camera.GetComponent<Camera>().rect = cameraRectViewport.Value;
-        
+
         GameObject separator = Instantiate(cameraSeparatorPrefab, transform);
     }
 
     private void Update()
     {
+        if (isGameOver.Value)
+        {
+            return;
+        }
+
         actualTime += Time.deltaTime;
         if (actualTime >= timeToFallDown.Value && !isFingerStuck)
         {
