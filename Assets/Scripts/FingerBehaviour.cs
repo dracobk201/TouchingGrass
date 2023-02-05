@@ -14,6 +14,7 @@ public class FingerBehaviour : MonoBehaviour
 
     [SerializeField] private GameObject nailPrefab;
     [SerializeField] private GameObject cameraPrefab;
+    [SerializeField] private GameObject cameraSeparatorPrefab;
 
     public bool isFingerStuck;
     private float actualTime;
@@ -24,10 +25,12 @@ public class FingerBehaviour : MonoBehaviour
         GameObject nail = Instantiate(nailPrefab, transform);
         Vector3 realPosition = new Vector3(0, 0, 0);
         nail.transform.localPosition = realPosition;
-
         objectPoolCollection[0] = nail;
+        
         GameObject camera = Instantiate(cameraPrefab, nail.transform);
         camera.GetComponent<Camera>().rect = cameraRectViewport.Value;
+        
+        GameObject separator = Instantiate(cameraSeparatorPrefab, transform);
     }
 
     private void Update()

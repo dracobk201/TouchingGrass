@@ -90,6 +90,7 @@ MonoBehaviour:
   laneRequestCompleted: {fileID: 11400000, guid: a012def728768eb41ae076e455068155, type: 2}
   nailPrefab: {fileID: 2169060672460508645, guid: dccd1328a57d75942a0d348d54cc3a9a, type: 3}
   cameraPrefab: {fileID: 514672180633344208, guid: f76419b45f7429a47b1a96eeae401acf, type: 3}
+  cameraSeparatorPrefab: {fileID: 6762222173176290571, guid: 97baad70faf114440b4a737f480dcc56, type: 3}
   isFingerStuck: 0
 --- !u!114 &2844651424389542420
 MonoBehaviour:
