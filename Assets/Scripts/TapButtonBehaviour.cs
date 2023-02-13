@@ -123,12 +123,8 @@ public class TapButtonBehaviour : MonoBehaviour, IPointerDownHandler, IPointerUp
         if (actualTimeOnLongPress >= expectedTimeOnLongPress)
         {
             RequestCompleted();
+            actualTimeOnLongPress = 0;
         }
-        else
-        {
-            buttonLabel.text = $"{expectedTimeOnLongPress}s";
-        }
-        actualTimeOnLongPress = 0;
     }
 
     #endregion
