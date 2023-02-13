@@ -623,6 +623,14 @@ PrefabInstance:
       propertyPath: laneNumber
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9129896239187596837, guid: f01ec56c6ef5d974488daa5d6bee3479, type: 3}
+      propertyPath: longPressSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a0ea3c879711f704e88499b563eefb55, type: 3}
+    - target: {fileID: 9129896239187596837, guid: f01ec56c6ef5d974488daa5d6bee3479, type: 3}
+      propertyPath: multipleTapSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a0ea3c879711f704e88499b563eefb55, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f01ec56c6ef5d974488daa5d6bee3479, type: 3}
 --- !u!224 &1409233598726342246 stripped

@@ -10,12 +10,8 @@ public class TapButtonBehaviour : MonoBehaviour, IPointerDownHandler, IPointerUp
     [SerializeField] private Button buttonReference;
     [SerializeField] private Image buttonImage;
     [SerializeField] private TMP_Text buttonLabel;
+    [SerializeField] private Animator laneAnimator;
     [SerializeField] private ShowLaneGameEvent laneRequestCompleted;
-
-    [SerializeField] private Sprite simpleTapSprite;
-    [SerializeField] private Sprite longPressSprite;
-    [SerializeField] private Sprite multipleTapSprite;
-    [SerializeField] private Sprite nonSprite;
 
     private bool buttonPressed;
     private int actualNumberOfTaps;
@@ -35,12 +31,13 @@ public class TapButtonBehaviour : MonoBehaviour, IPointerDownHandler, IPointerUp
         {
             return;
         }
+        requestedButtonType = laneConfiguration.buttonType;
+        
         ButtonActivation(true);
 
-        requestedButtonType = laneConfiguration.buttonType;
         switch (laneConfiguration.buttonType)
         {
-            case ButtonType.Tap:
+            case ButtonType.SingleTap:
                 buttonReference.onClick.AddListener(() => { DoSimpleTap(); });
                 buttonLabel.text = string.Empty;
                 break;
@@ -68,26 +65,15 @@ public class TapButtonBehaviour : MonoBehaviour, IPointerDownHandler, IPointerUp
         if (isButtonGoingToBeActivated)
         {
             newAlpha.a = 1;
-            switch (requestedButtonType)
+            if (requestedButtonType.Equals(ButtonType.None))
             {
-                case ButtonType.Tap:
-                    buttonReference.image.sprite = simpleTapSprite;
-                    break;
-                case ButtonType.LongPress:
-                    buttonReference.image.sprite = longPressSprite;
-                    break;
-                case ButtonType.RepeatedTap:
-                    buttonReference.image.sprite = multipleTapSprite;
-                    break;
-                case ButtonType.None:
-                default:
-                    buttonReference.image.sprite = nonSprite;
-                    break;
+                newAlpha.a = 0;
             }
+            laneAnimator.SetTrigger(requestedButtonType.ToString());
         }
         else
         {
-            buttonReference.image.sprite = nonSprite;
+            laneAnimator.SetTrigger(ButtonType.None.ToString());
             newAlpha.a = 0;
             buttonLabel.text = string.Empty;
         }

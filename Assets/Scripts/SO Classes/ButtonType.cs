@@ -1,4 +1,4 @@
 public enum ButtonType
 {
-    None, Tap, LongPress, RepeatedTap
+    None, SingleTap, LongPress, RepeatedTap
 }

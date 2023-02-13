@@ -122,7 +122,7 @@ public class FingerBehaviour : MonoBehaviour
         float targetTimeOnLongPress = 0;
         if (randomeButtonType == 0)
         {
-            targetButtonType = ButtonType.Tap;
+            targetButtonType = ButtonType.SingleTap;
         }
         else if (randomeButtonType == 1)
         {
@@ -136,8 +136,6 @@ public class FingerBehaviour : MonoBehaviour
             var calculatedValue = centimetersInGround.Value * 0.25f;
             targetNumberofTaps = (int)Mathf.Clamp(calculatedValue, 1, Mathf.Infinity);
         }
-
-        Debug.Log($"Sending {targetButtonType}");
 
         LaneRequest requestCompleted = new()
         {
