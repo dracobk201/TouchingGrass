@@ -42,15 +42,16 @@ public class TapButtonBehaviour : MonoBehaviour, IPointerDownHandler, IPointerUp
         {
             case ButtonType.Tap:
                 buttonReference.onClick.AddListener(() => { DoSimpleTap(); });
+                buttonLabel.text = string.Empty;
                 break;
             case ButtonType.LongPress:
                 expectedTimeOnLongPress = laneConfiguration.timeOnLongPress;
-                buttonLabel.text = $"{(int)expectedTimeOnLongPress}s";
+                buttonLabel.text = $"{expectedTimeOnLongPress} s";
                 break;
             case ButtonType.RepeatedTap:
-                expectedNumberOfTaps = laneConfiguration.numberOfTaps;
-                buttonLabel.text = $"{(int)expectedNumberOfTaps}";
                 buttonReference.onClick.AddListener(CheckMultipleTaps);
+                expectedNumberOfTaps = laneConfiguration.numberOfTaps;
+                buttonLabel.text = $"{expectedNumberOfTaps}";
                 break;
             case ButtonType.None:
             default:
@@ -63,6 +64,7 @@ public class TapButtonBehaviour : MonoBehaviour, IPointerDownHandler, IPointerUp
     {
         buttonReference.interactable = isButtonGoingToBeActivated;
         Color newAlpha = Color.white;
+
         if (isButtonGoingToBeActivated)
         {
             newAlpha.a = 1;
@@ -76,8 +78,6 @@ public class TapButtonBehaviour : MonoBehaviour, IPointerDownHandler, IPointerUp
                     break;
                 case ButtonType.RepeatedTap:
                     buttonReference.image.sprite = multipleTapSprite;
-                    buttonLabel.text = $"{expectedTimeOnLongPress}s";
-
                     break;
                 case ButtonType.None:
                 default:
@@ -89,14 +89,10 @@ public class TapButtonBehaviour : MonoBehaviour, IPointerDownHandler, IPointerUp
         {
             buttonReference.image.sprite = nonSprite;
             newAlpha.a = 0;
-        }
-        buttonReference.image.color = newAlpha;
-
-        if (requestedButtonType.Equals(ButtonType.LongPress) || requestedButtonType.Equals(ButtonType.RepeatedTap))
-        {
             buttonLabel.text = string.Empty;
         }
 
+        buttonReference.image.color = newAlpha;
         buttonReference.onClick.RemoveAllListeners();
     }
 
