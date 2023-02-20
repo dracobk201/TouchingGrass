@@ -32,7 +32,8 @@ public class FingerBehaviour : MonoBehaviour
         isFingerStuck = false;
         centimetersInGround.Value = 0;
         GameObject nail = Instantiate(nailPrefab, transform);
-        Vector3 realPosition = new Vector3(0, 0, 0);
+        Vector3 realPosition = nail.transform.localPosition;
+        realPosition.x = 0;
         nail.transform.localPosition = realPosition;
         objectPoolCollection[0] = nail;
 
@@ -89,14 +90,14 @@ public class FingerBehaviour : MonoBehaviour
             return;
         }
         var initialPosition = Vector3.zero;
-        var initialRotation = Quaternion.identity;
 
         for (int i = 0; i < objectPoolCollection.Count; i++)
         {
             if (!objectPoolCollection[i].activeInHierarchy)
             {
+                initialPosition = objectPoolCollection[i].transform.localPosition;
+                initialPosition.x = 0;
                 objectPoolCollection[i].transform.localPosition = initialPosition;
-                objectPoolCollection[i].transform.localRotation = initialRotation;
                 objectPoolCollection[i].SetActive(true);
                 break;
             }
