@@ -1,3 +1,4 @@
+using MoreMountains.NiceVibrations;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -86,7 +87,7 @@ public class TapButtonBehaviour : MonoBehaviour, IPointerDownHandler, IPointerUp
 
     private void DoSimpleTap()
     {
-        Debug.Log("tap");
+        MMVibrationManager.Haptic(HapticTypes.LightImpact);
         RequestCompleted();
     }
 
@@ -107,10 +108,12 @@ public class TapButtonBehaviour : MonoBehaviour, IPointerDownHandler, IPointerUp
     public void OnPointerUp(PointerEventData eventData)
     {
         buttonPressed = false;
+        MMVibrationManager.StopContinuousHaptic(true);
     }
 
     private IEnumerator CheckingLongPress()
     {
+        MMVibrationManager.ContinuousHaptic(0.4f, 0.8f, 5000, HapticTypes.MediumImpact, this, false, -1, false);
 
         while (buttonPressed)
         {
@@ -133,10 +136,11 @@ public class TapButtonBehaviour : MonoBehaviour, IPointerDownHandler, IPointerUp
 
     private void CheckMultipleTaps()
     {
-        Debug.Log("multiple tap");
+        MMVibrationManager.Haptic(HapticTypes.HeavyImpact);
         actualNumberOfTaps++;
         int remainingTaps = expectedNumberOfTaps - actualNumberOfTaps;
         buttonLabel.text = $"{Mathf.Clamp(remainingTaps, 0, Mathf.Infinity)}";
+
         if (actualNumberOfTaps >= expectedNumberOfTaps)
         {
             RequestCompleted();

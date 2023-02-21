@@ -1,3 +1,4 @@
+using MoreMountains.NiceVibrations;
 using ScriptableObjectArchitecture;
 using TMPro;
 using UnityEngine;
@@ -21,24 +22,28 @@ public class MainMenuPanelBehaviour : MonoBehaviour
 
     public void PlayButton()
     {
+        MMVibrationManager.Haptic(HapticTypes.Selection);
         canvasGroup = Utils.ShowCanvasGroup(canvasGroup, false);
         startGame.Raise();
     }
 
     public void CreditsButton()
     {
+        MMVibrationManager.Haptic(HapticTypes.Selection);
         canvasGroup = Utils.ShowCanvasGroup(canvasGroup, false);
         showCreditsGame.Raise();
     }
 
     public void LeaderboardButton()
     {
+        MMVibrationManager.Haptic(HapticTypes.Selection);
         canvasGroup = Utils.ShowCanvasGroup(canvasGroup, false);
         showLeaderboardGame.Raise();
     }
 
     public void ShowMainMenu()
     {
+
         gameStatusLabel.text = "Good Grass!";
         bestScoreText.text = $"{bestScore.Value} cm";
         canvasGroup = Utils.ShowCanvasGroup(canvasGroup, true);

@@ -1,3 +1,4 @@
+using MoreMountains.NiceVibrations;
 using ScriptableObjectArchitecture;
 using UnityEngine;
 
@@ -18,7 +19,8 @@ public class CreditsPanelBehaviour : MonoBehaviour
 
     public void ShowMainMenu()
     {
-        showMainMenu.Raise();
+        MMVibrationManager.Haptic(HapticTypes.Selection);
         canvasGroup = Utils.ShowCanvasGroup(canvasGroup, false);
+        showMainMenu.Raise();
     }
 }
