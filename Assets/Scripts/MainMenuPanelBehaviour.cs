@@ -5,6 +5,8 @@ using UnityEngine;
 public class MainMenuPanelBehaviour : MonoBehaviour
 {
     [SerializeField] private GameEvent startGame = default;
+    [SerializeField] private GameEvent showLeaderboardGame = default;
+    [SerializeField] private GameEvent showCreditsGame = default;
     [SerializeField] private CanvasGroup canvasGroup = default;
 
     [SerializeField] private TMP_Text gameStatusLabel = default;
@@ -17,20 +19,28 @@ public class MainMenuPanelBehaviour : MonoBehaviour
         bestScoreText.text = $"{bestScore.Value} cm";
     }
 
-    public void StartGameButton()
+    public void PlayButton()
     {
-        canvasGroup.alpha = 0;
-        canvasGroup.interactable = false;
-        canvasGroup.blocksRaycasts= false;
+        canvasGroup = Utils.ShowCanvasGroup(canvasGroup, false);
         startGame.Raise();
+    }
+
+    public void CreditsButton()
+    {
+        canvasGroup = Utils.ShowCanvasGroup(canvasGroup, false);
+        showCreditsGame.Raise();
+    }
+
+    public void LeaderboardButton()
+    {
+        canvasGroup = Utils.ShowCanvasGroup(canvasGroup, false);
+        showLeaderboardGame.Raise();
     }
 
     public void ShowMainMenu()
     {
         gameStatusLabel.text = "Good Grass!";
         bestScoreText.text = $"{bestScore.Value} cm";
-        canvasGroup.alpha = 1;
-        canvasGroup.interactable = true;
-        canvasGroup.blocksRaycasts = true;
+        canvasGroup = Utils.ShowCanvasGroup(canvasGroup, true);
     }
 }
